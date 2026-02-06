@@ -60,35 +60,7 @@ def main():
                 break
             else:
                 print(f"Неверный выбор! Пожалуйста, выберите номер от 1 до {max_race_choice}.")
-        
-        # print("Доступные расы:")
-        # for i, race in enumerate(races, 1):
-        #     print(f"{i}. {race}")
-        
-        # while True:
-        #     race_choice = input(f"Выберите номер расы для персонажа {character_num} (1-6): ")
-            
-        #     if race_choice == "1":
-        #         character_race = "Орк"
-        #         break
-        #     elif race_choice == "2":
-        #         character_race = "Эльф"
-        #         break
-        #     elif race_choice == "3":
-        #         character_race = "Гном"
-        #         break
-        #     elif race_choice == "4":
-        #         character_race = "Человек"
-        #         break
-        #     elif race_choice == "5":
-        #         character_race = "Хоббит"
-        #         break
-        #     elif race_choice == "6":
-        #         character_race = "Дварф"
-        #         break
-        #     else:
-        #         print("Неверный выбор! Пожалуйста, выберите номер от 1 до 6.")
-        
+
         print("\nДоступные классы:")
         class_list = list(classes_base.keys())
         
