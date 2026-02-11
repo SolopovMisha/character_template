@@ -7,6 +7,7 @@ env = Environment(
 )
 template = env.get_template('template.html')
 
+
 def main():
     races = ["Орк", "Эльф", "Гном", "Человек", "Хоббит", "Дварф"]
 
@@ -50,11 +51,11 @@ def main():
         print("Доступные расы:")
         for i, race in enumerate(races, 1):
             print(f"{i}. {race}")
-        
+
         max_race_choice = len(races)
-        
+
         while True:
-            race_choice = int(input(f"Выберите номер расы для персонажа {character_num} (1-{max_race_choice}): "))            
+            race_choice = int(input(f"Выберите номер расы для персонажа {character_num} (1-{max_race_choice}): "))
             if 1 <= race_choice <= max_race_choice:
                 character_race = races[race_choice - 1]
                 break
@@ -63,28 +64,25 @@ def main():
 
         print("\nДоступные классы:")
         class_list = list(classes_base.keys())
-        
+
         for i, class_name in enumerate(class_list, 1):
             print(f"{i}. {class_name}")
-        
+
         max_class_choice = len(class_list)
-        
+
         while True:
             class_choice = int(input(f"Выберите номер класса для персонажа {character_num} (1-{max_class_choice}): "))
-            
             if 1 <= class_choice <= max_class_choice:
                 character_class = class_list[class_choice - 1]
                 break
             else:
                 print(f"Неверный выбор! Пожалуйста, выберите номер от 1 до {max_class_choice}.")
 
-        
         class_data = classes_base[character_class]
         character_image = class_data["image"]
         character_skills = class_data["skills"]
-        
         high_stat = class_data["high_stat"]
-        
+
         stats = {
             "strength": random.randint(1, 3) if high_stat != "strength" else 15,
             "agility": random.randint(1, 3) if high_stat != "agility" else 15,
@@ -92,7 +90,7 @@ def main():
             "luck": random.randint(1, 3) if high_stat != "luck" else 15,
             "temper": random.randint(1, 3) if high_stat != "temper" else 15
         }
-        
+
         rendered_page = template.render(
             name=character_name,
             race=character_race,
@@ -107,10 +105,11 @@ def main():
             second_skill=character_skills[1],
             third_skill=character_skills[2]
         )
-        
+
         filename = os.path.join(characters_dir, f"index{character_num}.html")
         with open(filename, 'w', encoding="utf8") as file:
             file.write(rendered_page)
-        
+
+
 if __name__ == "__main__":
     main()
